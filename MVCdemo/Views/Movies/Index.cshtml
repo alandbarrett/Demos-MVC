@@ -1,0 +1,45 @@
+﻿@model IEnumerable<MVCdemo.Models.MovieDB>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index   <span class="glyphicon glyphicon-thumbs-up"></span></h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Director)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date) <span class="glyphicon glyphicon-calendar"></span>
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Director)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
+        <td>
+            <button class="btn btn-link">@Html.ActionLink("Edit", "Edit", new { id=item.ID }) </button>|
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>
